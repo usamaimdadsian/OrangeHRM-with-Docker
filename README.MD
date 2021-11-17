@@ -1,3 +1,6 @@
-1. Unzip the orangehrm-4.8.zip file
-2. Copy two folders lib and symfony to the root folder of project
-3. docker-compose up
+# Orange HRM Docker-Compose file
+To Run OrangeHRM in docker with MySQL without losing data after starting a new container
+# Setup
+- [Download](https://sourceforge.net/projects/orangehrm/files/stable/4.8/orangehrm-4.8.zip/download) the OrangeHRM-4.8.zip and unzip it
+- Unzip this zip file and Copy lib and symfony folders to the root folder of project
+- Run docker-compose up
