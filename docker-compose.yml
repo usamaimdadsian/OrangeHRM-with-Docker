@@ -1,0 +1,27 @@
+version: '3.9'
+services:
+  mysql:
+    image: mysql:5.7
+    volumes:
+      - ./mysqlmeta:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_ROOT_USER=root
+      - MYSQL_DATABASE=orangehrm
+
+  orangehrm:
+    image: orangehrm/orangehrm:latest
+    ports:
+      - 5000:80
+    environment:
+      - ORANGEHRM_DATABASE_HOST=mysql
+      - ORANGEHRM_DATABASE_USER=root
+      - ORANGEHRM_DATABASE_PASSWORD=password
+      - ORANGEHRM_DATABASE_NAME=orangehrm
+    volumes:
+      - ./lib/:/var/www/html/lib/
+      - ./symfony/:/var/www/html/symfony/
+    depends_on:
+      - mysql
+    links:
+      - mysql:mysql
